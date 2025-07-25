@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'controller/auth_controller.dart';
 import 'controller/theme_controller.dart';
 import 'utils/app_themes.dart';
 import 'view/splash.dart';
@@ -9,6 +10,7 @@ import 'view/splash.dart';
 void main() async {
   await GetStorage.init();
   Get.put(ThemeController());
+  Get.put(AuthController());
   runApp(const MyApp());
 }
 
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppThemes.dark,
       themeMode: themeController.theme,
       defaultTransition: Transition.fade,
-      home: const SplashScreen(),
+      home: SplashScreen(),
     );
   }
 }
