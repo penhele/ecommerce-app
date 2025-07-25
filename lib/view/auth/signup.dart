@@ -20,7 +20,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -31,7 +31,7 @@ class SignUpScreen extends StatelessWidget {
                   color: isDark ? Colors.white : Colors.black,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               Text(
                 'Create Account',
@@ -40,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
                   Theme.of(context).textTheme.bodyLarge!.color!,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
 
               Text(
                 'Sign up to get started',
@@ -49,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
                   isDark ? Colors.grey.shade400 : Colors.grey.shade600,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
 
               CustomTextfield(
                 label: 'Full Name',
@@ -67,6 +67,7 @@ class SignUpScreen extends StatelessWidget {
               CustomTextfield(
                 label: 'Email',
                 prefixIcon: Icons.email,
+                keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -116,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => Get.off(() => HomeScreen()),
+                  onPressed: () => Get.off(() => const HomeScreen()),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     padding: const EdgeInsets.symmetric(vertical: 16),

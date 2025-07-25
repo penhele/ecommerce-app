@@ -5,6 +5,7 @@ import '../../controller/auth_controller.dart';
 import '../../utils/app_textstyles.dart';
 import '../home/home.dart';
 import '../widgets/custom_textfield.dart';
+import 'forgot_password.dart';
 import 'signup.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -47,6 +48,7 @@ class SignInScreen extends StatelessWidget {
               CustomTextfield(
                 label: 'Email',
                 prefixIcon: Icons.email_outlined,
+                keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -78,7 +80,7 @@ class SignInScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => ForgotPasswordScreen()),
                   child: Text(
                     'Forgot Password?',
                     style: AppTextStyle.withColor(
