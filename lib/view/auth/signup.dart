@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/auth_controller.dart';
 import '../../utils/app_textstyles.dart';
 import '../home/home.dart';
 import '../widgets/custom_textfield.dart';
-import 'signup.dart';
+import 'signin.dart';
 
-class SignInScreen extends StatelessWidget {
-  SignInScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
 
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -20,33 +20,53 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 40),
+              IconButton(
+                onPressed: () => Get.back(),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: isDark ? Colors.white : Colors.black,
+                ),
+              ),
+              SizedBox(height: 20),
 
               Text(
-                'Welcome Back!',
+                'Create Account',
                 style: AppTextStyle.withColor(
                   AppTextStyle.h1,
                   Theme.of(context).textTheme.bodyLarge!.color!,
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
 
               Text(
-                'Sign in to continue shopping',
+                'Sign up to get started',
                 style: AppTextStyle.withColor(
                   AppTextStyle.bodyLarge,
                   isDark ? Colors.grey.shade400 : Colors.grey.shade600,
                 ),
               ),
-              const SizedBox(height: 40),
+              SizedBox(height: 40),
+
+              CustomTextfield(
+                label: 'Full Name',
+                prefixIcon: Icons.person_2_outlined,
+                controller: _nameController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your name';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16),
 
               CustomTextfield(
                 label: 'Email',
-                prefixIcon: Icons.email_outlined,
+                prefixIcon: Icons.email,
                 controller: _emailController,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -73,27 +93,30 @@ class SignInScreen extends StatelessWidget {
                   return null;
                 },
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 16),
 
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Forgot Password?',
-                    style: AppTextStyle.withColor(
-                      AppTextStyle.buttonMedium,
-                      Theme.of(context).primaryColor,
-                    ),
-                  ),
-                ),
+              CustomTextfield(
+                label: 'Confirm Password',
+                prefixIcon: Icons.lock_outline,
+                keyboardType: TextInputType.visiblePassword,
+                isPassword: true,
+                controller: _passwordController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  if (value != _passwordController.text) {
+                    return 'Password do not match';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 24),
 
               SizedBox(
                 width: double.infinity,
-
                 child: ElevatedButton(
+                  onPressed: () => Get.off(() => HomeScreen()),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     padding: const EdgeInsets.symmetric(vertical: 16),
@@ -101,11 +124,10 @@ class SignInScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  onPressed: _handleSignIn,
                   child: Text(
-                    'Sign In',
+                    'Sign Up',
                     style: AppTextStyle.withColor(
-                      AppTextStyle.buttonMedium,
+                      AppTextStyle.bodyMedium,
                       Colors.white,
                     ),
                   ),
@@ -117,16 +139,16 @@ class SignInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account?",
+                    "Already have an account?",
                     style: AppTextStyle.withColor(
                       AppTextStyle.bodyMedium,
                       isDark ? Colors.grey.shade400 : Colors.grey.shade600,
                     ),
                   ),
                   TextButton(
-                    onPressed: () => Get.to(() => SignUpScreen()),
+                    onPressed: () => Get.to(() => SignInScreen()),
                     child: Text(
-                      'Sign Up',
+                      'Sign In',
                       style: AppTextStyle.withColor(
                         AppTextStyle.buttonMedium,
                         Theme.of(context).primaryColor,
@@ -140,11 +162,5 @@ class SignInScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _handleSignIn() {
-    final AuthController authController = Get.find<AuthController>();
-    authController.login();
-    Get.offAll(() => const HomeScreen());
   }
 }
