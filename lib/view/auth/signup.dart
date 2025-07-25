@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../utils/app_textstyles.dart';
-import '../home/home.dart';
+import '../main.dart';
 import '../widgets/custom_textfield.dart';
 import 'signin.dart';
 
@@ -117,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => Get.off(() => const HomeScreen()),
+                  onPressed: () => Get.off(() => const MainScreen()),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     padding: const EdgeInsets.symmetric(vertical: 16),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller/auth_controller.dart';
-import 'home/home.dart';
+import 'main.dart';
 import 'onboarding.dart';
 import 'auth/signin.dart';
 
@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
       if (authController.isFirstTime) {
         Get.off(() => const OnboardingScreen());
       } else if (authController.isLoggedIn) {
-        Get.off(() => const HomeScreen());
+        Get.off(() => const MainScreen());
       } else {
         Get.off(() => SignInScreen());
       }

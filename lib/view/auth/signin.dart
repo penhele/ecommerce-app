@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../controller/auth_controller.dart';
 import '../../utils/app_textstyles.dart';
-import '../home/home.dart';
+import '../main.dart';
 import '../widgets/custom_textfield.dart';
 import 'forgot_password.dart';
 import 'signup.dart';
@@ -147,6 +147,6 @@ class SignInScreen extends StatelessWidget {
   void _handleSignIn() {
     final AuthController authController = Get.find<AuthController>();
     authController.login();
-    Get.offAll(() => const HomeScreen());
+    Get.offAll(() => const MainScreen());
   }
 }
