@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../controller/auth_controller.dart';
 import '../model/data/onboarding_list.dart';
 import '../utils/app_textstyles.dart';
-import 'signin.dart';
+import 'auth/signin.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -20,7 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void _handleGetStarted() {
     final AuthController authController = Get.find<AuthController>();
     authController.setFirstTimeDone();
-    Get.off(() => const SigninScreen());
+    Get.off(() => SigninScreen());
   }
 
   @override

@@ -32,7 +32,7 @@ class AppTextStyle {
     letterSpacing: 0.2,
   );
 
-  static TextStyle bodySmal = GoogleFonts.poppins(
+  static TextStyle bodySmall = GoogleFonts.poppins(
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );

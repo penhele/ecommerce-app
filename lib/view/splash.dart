@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller/auth_controller.dart';
-import 'home.dart';
+import 'home/home.dart';
 import 'onboarding.dart';
-import 'signin.dart';
+import 'auth/signin.dart';
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
       } else if (authController.isLoggedIn) {
         Get.off(() => const HomeScreen());
       } else {
-        Get.off(() => const SigninScreen());
+        Get.off(() => SigninScreen());
       }
     });
 
