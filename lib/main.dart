@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 
 import 'controller/theme_controller.dart';
 import 'utils/app_themes.dart';
+import 'view/splash.dart';
 
 void main() async {
   await GetStorage.init();
@@ -19,11 +20,13 @@ class MyApp extends StatelessWidget {
     final themeController = Get.find<ThemeController>();
 
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Fashion Store',
       theme: AppThemes.light,
       darkTheme: AppThemes.dark,
       themeMode: themeController.theme,
       defaultTransition: Transition.fade,
+      home: const SplashScreen(),
     );
   }
 }
