@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+import 'controller/theme_controller.dart';
+import 'utils/app_themes.dart';
+
+void main() async {
+  await GetStorage.init();
+  Get.put(ThemeController());
   runApp(const MyApp());
 }
 
@@ -9,12 +16,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+    final themeController = Get.find<ThemeController>();
+
+    return GetMaterialApp(
+      title: 'Fashion Store',
+      theme: AppThemes.light,
+      darkTheme: AppThemes.dark,
+      themeMode: themeController.theme,
+      defaultTransition: Transition.fade,
     );
   }
 }
