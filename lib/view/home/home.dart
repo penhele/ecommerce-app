@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   GetBuilder<ThemeController>(
                     builder: (controller) => IconButton(
-                      onPressed: () {},
+                      onPressed: () => controller.toggleTheme(),
                       icon: Icon(
                         controller.isDarkMode
                             ? Icons.light_mode
