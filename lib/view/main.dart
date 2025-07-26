@@ -7,7 +7,7 @@ import 'account/account.dart';
 import 'home/home.dart';
 import 'shop/shopping.dart';
 import 'widgets/custom_bottom_navbar.dart';
-import 'wishtlist/wishlist.dart';
+import 'wistlist/wishlist.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
