@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../models/product.dart';
+import '../../data/models/product.dart';
 import '../../utils/app_textstyles.dart';
 import '../widgets/size_selector.dart';
 

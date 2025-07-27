@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controller/auth_controller.dart';
-import '../models/onboarding_list.dart';
+import '../data/models/onboarding_list.dart';
 import '../utils/app_textstyles.dart';
 import 'auth/signin.dart';
 
