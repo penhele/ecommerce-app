@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../controller/auth_controller.dart';
 import '../../utils/app_textstyles.dart';
 import '../auth/signin.dart';
+import 'setting.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -21,6 +22,15 @@ class AccountScreen extends StatelessWidget {
             isDark ? Colors.white : Colors.black,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () => Get.to(() => const SettingScreen()),
+            icon: Icon(
+              Icons.settings_outlined,
+              color: isDark ? Colors.white : Colors.black,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
