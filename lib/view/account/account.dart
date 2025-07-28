@@ -6,6 +6,7 @@ import '../../utils/app_textstyles.dart';
 import '../auth/signin.dart';
 import 'orders.dart';
 import 'setting.dart';
+import 'shipping_address.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -154,6 +155,7 @@ class AccountScreen extends StatelessWidget {
                 } else if (item['title'] == 'My Orders') {
                   Get.to(() => OrdersScreen());
                 } else if (item['title'] == 'Shipping Address') {
+                  Get.to(() => ShippingAddressScreen());
                 } else if (item['title'] == 'Help Center') {}
               },
             ),
