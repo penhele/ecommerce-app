@@ -12,6 +12,7 @@ class CustomTextfield extends StatefulWidget {
     this.controller,
     this.validator,
     this.onChanged,
+    this.initialValue,
   });
 
   final String label;
@@ -20,6 +21,7 @@ class CustomTextfield extends StatefulWidget {
   final bool isPassword;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final String? initialValue;
   final void Function(String)? onChanged;
 
   @override

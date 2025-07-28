@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../controller/auth_controller.dart';
 import '../../utils/app_textstyles.dart';
 import '../auth/signin.dart';
+import 'edit_profile.dart';
 import 'orders.dart';
 import 'setting.dart';
 import 'shipping_address.dart';
@@ -84,7 +85,7 @@ class AccountScreen extends StatelessWidget {
           const SizedBox(height: 16),
 
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () => Get.to(() => const EditProfileScreen()),
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
               side: BorderSide(color: isDark ? Colors.white70 : Colors.black12),
