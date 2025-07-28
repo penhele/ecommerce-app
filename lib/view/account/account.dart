@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../controller/auth_controller.dart';
 import '../../utils/app_textstyles.dart';
 import '../auth/signin.dart';
+import '../orders/orders.dart';
 import 'setting.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -151,6 +152,7 @@ class AccountScreen extends StatelessWidget {
                 if (item['title'] == 'Logout') {
                   _showLogoutDialog(context);
                 } else if (item['title'] == 'My Orders') {
+                  Get.to(() => OrdersScreen());
                 } else if (item['title'] == 'Shipping Address') {
                 } else if (item['title'] == 'Help Center') {}
               },
